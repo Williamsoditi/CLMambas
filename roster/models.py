@@ -4,8 +4,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Player(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100, default='New Player')
     height= models.DecimalField(max_digits=1, decimal_places=1, max_length=5, blank=True, null=
     True)  # height in feet
     position = models.CharField(max_length=50, blank=True, null=True, choices=[
