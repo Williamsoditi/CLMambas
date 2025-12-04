@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 class Player(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    height(ft)= models.DecimalField(max_digits=1, decimal_places=1, max_length=5, blank=True, null=
+    height= models.DecimalField(max_digits=1, decimal_places=1, max_length=5, blank=True, null=
     True)  # height in feet
     position = models.CharField(max_length=50, blank=True, null=True, choices=[
         ('Point Guard', 'Point Guard'),
