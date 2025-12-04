@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+import cloudinary
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'roster',
     'baton.autodiscover',
 ]
+
+cloudinary.config(
+    cloud_name = "doairargz",
+    api_key = "239579379549427", 
+    api_secret = "vvlLw_6lN1POfposN_cyyKN2duM", 
+    secure = True
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
