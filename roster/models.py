@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 class Player(models.Model):
     name = models.CharField(max_length=100, default='New Player')
     height_ft= models.DecimalField(max_digits=3, decimal_places=1, max_length=5, blank=True, null=
-    True)  # height in feet
+    True, help_text="Height in feet")  # height in feet
     position = models.CharField(max_length=50, blank=True, null=True, choices=[
         ('Point Guard', 'Point Guard'),
         ('Shooting Guard', 'Shooting Guard'),
@@ -15,8 +15,11 @@ class Player(models.Model):
         ('C', 'Center'),
     ])
     jersey_number = models.PositiveIntegerField(unique=True)
-    image = CloudinaryField('Player Photo', blank=True, null=True)
-    weight_kgs = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)  # weight in kgs
+    image = CloudinaryField('image', folder='roster_images/', blank=True, null=True, help_text="Upload player image")
+    
+    weight_kgs = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True, help_text="Weight in kilograms")  # weight in kgs
+
+
     def __str__(self):
         return f"{self.name} - #{self.jersey_number} ({self.position})"
 

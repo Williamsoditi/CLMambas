@@ -7,4 +7,6 @@ urlpatterns = [
     path('api/', include('news.urls')),
     path('api/', include('schedule.urls')),
     path('api/', include('roster.urls')),
+    #Add DRF auth token urls for admin login/logout
+    path('api-auth/', include('rest_framework.urls') ), 
 ]
