@@ -7,7 +7,19 @@ from .serializers import PlayerSerializer
 class PlayerList(generics.ListCreateAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_permissions(self):
+        if self.request.method in ['PUT', 'DELETE', 'PATCH']:
+            return  [IsAdminUser()]
+        return [IsAuthenticatedOrReadOnly()]
 
 class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer 
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_permissions(self):
+        if self.request.method in ['PUT', 'DELETE', 'PATCH']:
+            return  [IsAdminUser()]
+        return [IsAuthenticatedOrReadOnly()]
