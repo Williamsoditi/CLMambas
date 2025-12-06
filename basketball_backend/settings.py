@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'news',
     'schedule',
     'roster',
+    'results',
     'baton.autodiscover',
 ]
 
