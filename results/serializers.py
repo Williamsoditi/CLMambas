@@ -23,6 +23,7 @@ class GameResultSerializer(serializers.ModelSerializer):
             'status',
             'recorded_at',
             'last_updated',
+            'league_name',
         )
         read_only_fields = ['recorded_at', 'last_updated']
         
